@@ -1,0 +1,12 @@
+Legacy code bị lỗi vì sử dụng Method Overloading để xử lý đa hình.
+Trong Java, Overloading được quyết định ở Compile-time.
+Compiler chỉ dựa vào kiểu tham chiếu để chọn phương thức.
+Biến o2 có kiểu Order nên compiler gọi calculate(Order).
+Đối tượng thực tế là ExpressOrder không được xét khi chọn overload.
+Do đó JVM thực hiện đúng lời gọi mà compiler đã sinh ra.
+Kết quả trả về luôn là 15000.
+Muốn xử lý đúng cần dùng Method Overriding.
+calculateFee() nên đặt trong Order.
+ExpressOrder ghi đè calculateFee().
+Khi chạy, JVM sẽ Dynamic Binding tới đúng phương thức của lớp con.
+Điều này giúp hệ thống mở rộng dễ dàng và tuân thủ nguyên lý Open/Closed.
